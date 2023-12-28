@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Imagens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .gallery-container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .full-image-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .full-image {
+            max-width: 90%;
+            max-height: 90%;
+            border: 2px solid #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gallery-container">
+    <img src="/img/Captura de tela 2023-11-23 191027.png" class="thumbnail" onclick="openImage('/img/Captura de tela 2023-11-23 191027.png')" alt="Imagem 1">
+    <img src="/img/Captura de tela 2023-11-28 145217.png" class="thumbnail" onclick="openImage('/img/Captura de tela 2023-11-28 145217.png')" alt="Imagem 2">
+    <img src="img/Captura de tela 2023-11-28 145247.png" class="thumbnail" onclick="openImage('img/Captura de tela 2023-11-28 145247.png')" alt="Imagem 3">
+    <!-- Adicione mais imagens conforme necessário -->
+</div>
+
+<div class="full-image-container" id="fullImageContainer" onclick="closeImage()">
+    <img class="full-image" id="fullImage" alt="Imagem em Tamanho Real">
+</div>
+
+<script>
+    function openImage(imagePath) {
+        var fullImageContainer = document.getElementById("fullImageContainer");
+        var fullImage = document.getElementById("fullImage");
+
+        fullImage.src = imagePath;
+        fullImageContainer.style.display = "flex";
+    }
+
+    function closeImage() {
+        var fullImageContainer = document.getElementById("fullImageContainer");
+        fullImageContainer.style.display = "none";
+    }
+</script>
+
+</body>
+</html>
